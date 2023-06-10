@@ -1,0 +1,19 @@
+version: "3.1"
+
+networks:
+  backend:
+    name: h2-network
+    driver: bridge
+
+services:
+  db:
+    image: thomseno/h2:1.4.200
+    container_name: h2-database
+    restart: always
+    ports:
+      - 9092:9092
+      - 8082:8082
+    volumes:
+      - ./data:/h2-data
+    networks:
+      - backend
