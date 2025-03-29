@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/hello",
+    "queryParameters": {
+      "name": {
+        "matches": ".*"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": "{ \"message\": \"Hello {{request.query.name}} from WireMock!\" }",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "fixedDelayMilliseconds": 300,
+    "transformers": ["response-template"]
+  }
+}
